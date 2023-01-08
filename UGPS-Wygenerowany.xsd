@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="underground_passion">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="hobby" type="xs:string" />
+				<xs:element name="main">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element maxOccurs="unbounded" name="segment">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="title" type="xs:string" />
+										<xs:element minOccurs="0" name="ciekawostki">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element maxOccurs="unbounded" name="ciekawostka" type="xs:string" />
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element minOccurs="0" name="lista">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element maxOccurs="unbounded" name="element">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="list" type="xs:string" />
+															</xs:sequence>
+															<xs:attribute name="nr" type="xs:unsignedByte" use="required" />
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element minOccurs="0" name="tresc" type="xs:string" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="wykrywacze">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element maxOccurs="unbounded" name="segment">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="title" type="xs:string" />
+										<xs:element minOccurs="0" name="links">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element maxOccurs="unbounded" name="link">
+														<xs:complexType>
+															<xs:simpleContent>
+																<xs:extension base="xs:string">
+																	<xs:attribute name="source" type="xs:string" use="required" />
+																</xs:extension>
+															</xs:simpleContent>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element minOccurs="0" name="tabela">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element maxOccurs="unbounded" name="wiersz">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="nazwa_wykrywacza" type="xs:string" />
+																<xs:element name="cena" type="xs:string" />
+															</xs:sequence>
+															<xs:attribute name="nr" type="xs:unsignedByte" use="required" />
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element minOccurs="0" name="budowa">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element maxOccurs="unbounded" name="czesc">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="tresc" type="xs:string" />
+															</xs:sequence>
+															<xs:attribute name="nr" type="xs:unsignedByte" use="required" />
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element minOccurs="0" name="tresc" type="xs:string" />
+										<xs:element minOccurs="0" name="dzialania">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element maxOccurs="unbounded" name="dzialanie">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="tresc" type="xs:string" />
+															</xs:sequence>
+															<xs:attribute name="nr" type="xs:unsignedByte" use="required" />
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="galeria">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="segment">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="title" type="xs:string" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="zdjecia">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element maxOccurs="unbounded" name="zdjecie">
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension base="xs:string">
+														<xs:attribute name="source" type="xs:string" use="required" />
+													</xs:extension>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="video">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element maxOccurs="unbounded" name="segment">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="title" type="xs:string" />
+													<xs:element minOccurs="0" maxOccurs="unbounded" name="kanaly">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="kanal" type="xs:string" />
+																<xs:element name="imie" type="xs:string" />
+																<xs:element name="subskrybcje" type="xs:string" />
+																<xs:element name="link">
+																	<xs:complexType>
+																		<xs:simpleContent>
+																			<xs:extension base="xs:string">
+																				<xs:attribute name="source" type="xs:string" use="required" />
+																			</xs:extension>
+																		</xs:simpleContent>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+															<xs:attribute name="nr" type="xs:unsignedByte" use="required" />
+														</xs:complexType>
+													</xs:element>
+													<xs:element minOccurs="0" name="tresc" type="xs:string" />
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,67 @@
+﻿<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="Cssprojekt.css"/>
+    <meta charset="UTF-8" />
+    <title>Underground Passion</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+    <div id="=cale">
+        <header>
+            <h1>Ankieta</h1>
+        </header>
+        <div id="tresc">
+            <section>
+                <h2>Co sądzisz?</h2>
+                Napisz swoją opinię czy ta strona była pomocna. Dodaj coś od siebie, napisz o swoich skarbach, lub o swoim ulubionym wykrywaczu.
+            </section>
+            <h3>Aby wziąć udział użyj swojego konta:</h3>
+            <form action="/action.php">
+                Imię:
+                <input type="text" name="imię" value="Proszę,podać login" /><br />
+                Mail:
+                <input type="text" name="mail" value="Proszę,podać adres mailowy" /><br />
+                Płeć:
+                <label for="m">Mężczyzna</label>
+                <input type="radio" name="plec" id="m" value="m" checked />
+                <label for="k">Kobieta</label>
+                <input type="radio" name="plec" id="k" value="k" checked /><br/>
+                Czy jesteś detektorystą?:
+                <input type="checkbox" name="szukal" value="szukal" checked />Tak
+                <input type="checkbox" name="nszukal" value="nszukal" checked />Nie<br/>
+                Ile lat chodzisz z wykrywaczem?: 
+                <select>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                   
+                </select><br/>
+                <textarea rows="6" cols="50">
+                Dodaj coś od siebie!
+                </textarea><br/>
+                Dodaj plik:
+                <input type="file" name="file" /><br/>
+                <input type="submit" value="Wyślij" />
+                <input type="reset" value="Reset" />
+
+            </form>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="Htmlprojekt.html">Strona Głowna</a></li>
+                <li><a href="Wykrywacze.html">Wykrywacze</a></li>
+                <li>
+                    <a href="Galeria.html">Galeria</a>
+                    <ul>
+                        <li><a href="Video.html">Video</a>
+                        <li><a href="Ankieta.html">Ankieta</a>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>

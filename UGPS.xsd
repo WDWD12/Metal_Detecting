@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified">
+	<xs:element name="underground_passion">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="hobby"/>
+				<xs:element ref="main"/>
+				<xs:element name="wykrywacze" type="wykrywaczeType"/>
+				<xs:element name="galeria" type="galeriaType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="title">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:minLength value="0"/>
+				<xs:maxLength value="100"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="tresc">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:minLength value="0"/>
+				<xs:maxLength value="1200"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="hobby">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:minLength value="0"/>
+				<xs:maxLength value="20"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name ="main">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="segment" type="segmentType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="segmentType">
+		<xs:sequence>
+			<xs:element ref="title" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element	ref="tresc" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="lista" type="listaType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="ciekawostki" type="ciekawostkiType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="tabela" type="tabelaType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="budowa" type="budowaType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="dzialania" type="dzialaniaType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="links" type="linksType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="kanaly" type="kanalyType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ciekawostkiType">
+		<xs:sequence>
+			<xs:element  name="ciekawostka" type="longStringType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:byte"/>
+	</xs:complexType>
+	<xs:complexType name="listaType">
+		<xs:sequence>
+			<xs:element name="element" type="elementType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="elementType">
+		<xs:sequence>
+			<xs:element name="list" type="longStringType"/>
+		</xs:sequence>
+		<xs:attribute name="nr" type="xs:byte"/>
+	</xs:complexType>
+	<xs:complexType name="wykrywaczeType">
+		<xs:sequence>
+			<xs:element name="segment" type="segmentType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="linksType">
+		<xs:sequence>
+			<xs:element name="link" type="adressType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="adressType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="source" type="xs:anyURI" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="tabelaType">
+		<xs:sequence>
+			<xs:element name="wiersz" type="wierszType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="wierszType">
+		<xs:sequence>
+			<xs:element name="nazwa_wykrywacza" type="shortStringType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="cena" type="cenaType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="linijka" type="xs:byte"/>
+	</xs:complexType>
+	<xs:complexType name="dzialaniaType">
+		<xs:sequence>
+			<xs:element name="dzialanie" type="dzialanieType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="dzialanieType">
+		<xs:sequence>
+			<xs:element name="tresc" type="longStringType"  minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="sposob" type="xs:byte"/>
+	</xs:complexType>
+	<xs:complexType name="budowaType">
+		<xs:sequence>
+			<xs:element name="czesc" type="czescType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="czescType">
+		<xs:sequence>
+			<xs:element name="tresc" type="longStringType"  minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="numer" type="xs:byte"/>
+	</xs:complexType>
+	<xs:complexType name="galeriaType">
+		<xs:sequence>
+			<xs:element name ="segment" type="segmentType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="zdjecia" type="zdjeciaType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name ="video" type="videoType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="zdjeciaType">
+		<xs:sequence>
+			<xs:element name="zdjecie" type="adressType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="videoType">
+		<xs:sequence>
+			<xs:element name="segment" type="segmentType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="kanalyType">
+		<xs:sequence>
+			<xs:element name="kanal" type="shortStringType"/>
+			<xs:element name="imie" type="imieType"/>
+			<xs:element name="subskrybcje" type="subskrybcjeType"/>
+			<xs:element name="link" type="adressType"/>
+		</xs:sequence>
+		<xs:attribute name="ulubiony" type="xs:byte"/>
+	</xs:complexType>
+	
+	
+	
+	<xs:simpleType name="shortStringType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="longStringType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="1200"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="cenaType">
+		<xs:restriction base="xs:string">
+			<xs:length value="4"/>
+			<xs:pattern value="[0-9]{4}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="subskrybcjeType">
+		<xs:restriction base="xs:integer">
+			<xs:enumeration value="334000"/>
+			<xs:enumeration value="62000"/>
+			<xs:enumeration value="32000"/>
+			<xs:enumeration value="21000"/>
+			<xs:enumeration value="12000000"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="imieType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

@@ -1,0 +1,21 @@
+﻿<Root>
+	<xsl:template match="/">
+		<x>1</x>
+		<xsl:apply-templates />
+		<y>4</y>
+	</xsl:template>
+	<x>2</x>
+	<xsl:template match="x">
+		<x>3</x>
+		<xsl:value-of select="." />
+		<y>5</y>
+	</xsl:template>
+	<z>
+		<xsl:template match="a">
+			<a>a</a>
+			<xsl:value-of select="." />
+			<b>b</b>
+		</xsl:template>
+		<a>c</a>
+	</z>
+</Root >

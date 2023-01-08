@@ -1,0 +1,120 @@
+﻿html, body {
+    background-color: #b5b35c;
+    color: #000;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+header {
+    height: 100px;
+    background: #b5b35c;
+    margin: 0 0 10px 0;
+    color: #000;
+    position: relative;
+}
+nav {
+    width: 10%;
+    position: absolute;
+    top: 20%;
+    left:80%;
+    padding: 1%;
+    overflow: hidden;
+}
+nav ul li {
+    list-style-type: none;
+    padding: 0 0 0 10px;
+}
+nav ul > li:hover {
+    background-color: #C0C0C0;
+}
+nav ul > li:hover > a {
+    color: #002080;
+}
+nav ul li a.active {
+    background-color: #C0C0C0;
+    color: #002080;
+}
+#tresc {
+    width: 75%;
+    background: #B87333;
+    text-align: center;
+    padding: 1%;
+    overflow: hidden;
+}
+#cale {
+    width: 90%;
+    overflow: hidden;
+    margin: 0 auto;
+    min-height: calc(100% - 52px);
+    padding: 1%;
+}
+footer {
+    height: 50px;
+    background: #000;
+    color: #FFF;
+    text-align: center;
+    margin-top: 10px;
+    
+}
+div#tresc > table * {
+    border: 1px solid black;
+    
+}
+div#tresc > table {
+    width: 50%;
+    border: 5px solid blue;
+}
+img{
+    width:500px;
+    height:300px;
+}
+svg{
+    position:absolute;
+    bottom : 45%;
+    left: 10%;
+}
+p::first-letter {
+    color: white;
+    font-variant: small-caps;
+}
+h1{
+    color: black;
+}
+table{
+   position:relative;
+   left:25%;
+}
+
+
+
+@media (max-width: 900px) {
+    #tresc {
+        width: 100%;
+        position: relative;
+        top: 20px;
+        margin-top: 5%;
+        margin-bottom: 10px;
+    }
+
+    footer {
+        width: 100%;
+        margin-top: 5%;
+    }
+
+    nav {
+        width: 30%;
+        position: absolute;
+        height: 60px;
+        margin-bottom: 5%;
+        left:0%;
+        top:15%;
+    }
+
+        nav ul li {
+            display: inline;
+        }
+
+            nav ul li:after {
+                content: " |";
+            }
+}

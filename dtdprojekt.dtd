@@ -1,0 +1,40 @@
+<!ELEMENT underground_passion (hobby+,main+,wykrywacze+,galeria+)>
+<!ATTLIST underground_passion xmlns:xsi CDATA #REQUIRED>
+<!ATTLIST underground_passion xsi:noNamespaceSchemaLocation CDATA #REQUIRED>
+<!ELEMENT hobby (#PCDATA)>
+<!ELEMENT main (segment+)>
+<!ELEMENT segment (title*,tresc*,lista*,ciekawostki*,tabela*,budowa*,dzialania*,links*,kanaly*)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT tresc (#PCDATA)>
+<!ELEMENT lista (element*)>
+<!ELEMENT element (list+)>
+<!ATTLIST element nr (1|2|3|4|5) #REQUIRED>
+<!ELEMENT list (#PCDATA)>
+<!ELEMENT ciekawostki (ciekawostka+)>
+<!ATTLIST ciekawostki id (1) #FIXED "1">
+<!ELEMENT ciekawostka (#PCDATA)>
+<!ELEMENT tabela (wiersz+)>
+<!ELEMENT wiersz (nazwa_wykrywacza+,cena+)>
+<!ATTLIST wiersz linijka (1|2|3|4|5|6) #REQUIRED>
+<!ELEMENT nazwa_wykrywacza (#PCDATA)>
+<!ELEMENT cena (#PCDATA)>
+<!ELEMENT links (link*)>
+<!ATTLIST link source CDATA #REQUIRED>
+<!ELEMENT link (#PCDATA)>
+<!ELEMENT budowa (czesc+)>
+<!ELEMENT czesc (tresc+)>
+<!ATTLIST czesc numer (1|2|3|4) #REQUIRED>
+<!ELEMENT dzialania (dzialanie+)>
+<!ELEMENT dzialanie (tresc+)>
+<!ATTLIST dzialanie sposob (1|2|3) #REQUIRED>
+<!ELEMENT kanaly (kanal+,imie+,subskrybcje+,link+)>
+<!ATTLIST kanaly ulubiony (1|2|3|4|5) #REQUIRED>
+<!ELEMENT kanal (#PCDATA)>
+<!ELEMENT imie (#PCDATA)>
+<!ELEMENT subskrybcje (#PCDATA)>
+<!ELEMENT wykrywacze (segment+)>
+<!ELEMENT galeria (segment+,zdjecia+,video+)>
+<!ELEMENT zdjecia (zdjecie+)>
+<!ELEMENT zdjecie (#PCDATA)>
+<!ATTLIST zdjecie source CDATA #REQUIRED>
+<!ELEMENT video (segment+)>
